@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--
+  CYBERWISE - Cybersecurity Awareness
+  Cristal e-College | ITEL 1 - Web Systems and Technologies | Final Examination
+  Member 2 (Front-End): this file is the STRUCTURE of the website (HTML).
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBERWISE - Stay Smart. Stay Secure.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🛡️</span>
+      <div>
+        <h1>CYBERWISE</h1>
+        <small>Stay Smart. Stay Secure.</small>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-btn active" data-target="home">🏠 Home</button>
+      <button class="nav-btn" data-target="learn">📚 Awareness</button>
+      <button class="nav-btn" data-target="passwords">🔑 Passwords</button>
+      <button class="nav-btn" data-target="threats">⚠️ Threats</button>
+      <button class="nav-btn" data-target="privacy">🕶️ Privacy</button>
+      <button class="nav-btn" data-target="quiz">🎮 Quiz Game</button>
+      <button class="nav-btn" data-target="leaderboard">🏆 Ranks</button>
+      <button class="nav-btn" data-target="about">ℹ️ About</button>
+    </nav>
+
+    <button id="soundToggle" class="icon-btn" title="Toggle sound">🔊</button>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="page active">
+      <div class="hero card">
+        <p class="tag">// CYBERSECURITY AWARENESS</p>
+        <h2>Hackers only need <span class="glow">one weak moment.</span><br>Do not give them one.</h2>
+        <p>
+          CYBERWISE teaches students how to protect their accounts and personal
+          information online. Learn the basics, check your password, spot scams,
+          then prove your skills in the quiz game.
+        </p>
+
+        <!-- Name form with validation -->
+        <form id="nameForm" class="name-form" novalidate>
+          <label for="playerName">Enter your player name to join the leaderboard</label>
+          <div class="row">
+            <input type="text" id="playerName" maxlength="15" placeholder="e.g. CyberHero" autocomplete="off">
+            <button type="submit" class="btn primary">Play Quiz ▶</button>
+          </div>
+          <p id="nameError" class="error" role="alert"></p>
+        </form>
+      </div>
+
+      <div class="grid-3">
+        <div class="card stat"><span id="statGames">0</span><small>Quiz Games Played</small></div>
+        <div class="card stat"><span id="statBest">0</span><small>Your Best Score</small></div>
+        <div class="card stat"><span id="statCorrect">0</span><small>Correct Answers</small></div>
+      </div>
+
+      <div class="grid-3 features">
+        <button class="card feature" data-target="learn"><span>📚</span><b>Cybersecurity Awareness</b><small>The basics every student needs</small></button>
+        <button class="card feature" data-target="passwords"><span>🔑</span><b>Password Security Guide</b><small>Strength checker and generator</small></button>
+        <button class="card feature" data-target="threats"><span>⚠️</span><b>Common Cyber Threats</b><small>Phishing, malware and more</small></button>
+        <button class="card feature" data-target="privacy"><span>🕶️</span><b>Online Privacy Tips</b><small>Your personal checklist</small></button>
+        <button class="card feature" data-target="quiz"><span>🎮</span><b>Cybersecurity Quiz Game</b><small>Timed, with streaks and ranks</small></button>
+      </div>
+
+      <div class="card tip-card">
+        <h3>💡 Cyber Tip of the Moment</h3>
+        <p id="cyberTip"></p>
+        <button id="newTip" class="btn ghost">Another tip</button>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE 1: CYBERSECURITY AWARENESS ===== -->
+    <section id="learn" class="page">
+      <div class="card">
+        <h2>📚 Cybersecurity Awareness</h2>
+        <p><b>Cybersecurity</b> means protecting your devices, accounts and personal information from people who want to steal, damage or misuse them. You do not need to be a computer expert. Good habits stop most attacks.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card mini"><h3>🔒 Confidentiality</h3><p>Only the right people can see your information.</p></div>
+        <div class="card mini"><h3>✅ Integrity</h3><p>Your information is not changed by someone else.</p></div>
+        <div class="card mini"><h3>🌐 Availability</h3><p>You can reach your accounts and files when you need them.</p></div>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Why are students targeted?</h3>
+        <ul>
+          <li>Students use many accounts: school, email, social media, games.</li>
+          <li>Many reuse the same password everywhere.</li>
+          <li>Students trust links from friends, free offers and scholarship messages.</li>
+          <li>Hacked social accounts are used to scam your friends and family.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>⭐ 5 Golden Habits</h3>
+        <ol class="habits">
+          <li><b>Think before you click.</b> Check the sender and the link.</li>
+          <li><b>Use strong, different passwords</b> for important accounts.</li>
+          <li><b>Turn on two-factor authentication (2FA).</b></li>
+          <li><b>Update</b> your phone, apps and computer.</li>
+          <li><b>Share less.</b> Keep personal details private.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE 2: PASSWORD SECURITY GUIDE ===== -->
+    <section id="passwords" class="page">
+      <div class="card">
+        <h2>🔑 Password Security Guide</h2>
+        <p>Test how strong a password is. It is checked only inside your browser. Nothing is sent or saved. Do not type your real password here. Try a similar one instead.</p>
+
+        <label for="pwInput" class="lbl">Try a password</label>
+        <div class="row">
+          <input type="password" id="pwInput" placeholder="Type a sample password" autocomplete="off">
+          <button id="pwShow" class="btn ghost" type="button">👁 Show</button>
+        </div>
+
+        <div class="meter"><div id="pwBar" class="meter-bar"></div></div>
+        <p class="meter-text"><b id="pwLabel">Type something to begin</b> <span id="pwCrack" class="muted"></span></p>
+
+        <ul id="pwChecks" class="checks">
+          <li data-check="length">At least 12 characters</li>
+          <li data-check="upper">Has an uppercase letter</li>
+          <li data-check="lower">Has a lowercase letter</li>
+          <li data-check="number">Has a number</li>
+          <li data-check="symbol">Has a symbol (! @ # $ ...)</li>
+          <li data-check="common">Not a common password or pattern</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>⚙️ Password Generator</h3>
+        <p>Make a random password or a passphrase.</p>
+        <div class="gen-row">
+          <label for="genLength">Length: <b id="genLenText">16</b></label>
+          <input type="range" id="genLength" min="8" max="32" value="16">
+        </div>
+        <div class="gen-row opts">
+          <label><input type="checkbox" id="optUpper" checked> ABC</label>
+          <label><input type="checkbox" id="optLower" checked> abc</label>
+          <label><input type="checkbox" id="optNumber" checked> 123</label>
+          <label><input type="checkbox" id="optSymbol" checked> #$%</label>
+        </div>
+        <div class="row">
+          <input type="text" id="genOutput" readonly placeholder="Your new password appears here">
+          <button id="genBtn" class="btn primary" type="button">Generate</button>
+          <button id="copyBtn" class="btn ghost" type="button">📋 Copy</button>
+        </div>
+        <p id="genMsg" class="error" role="alert"></p>
+      </div>
+
+      <div class="card">
+        <h3>✅ Password Do's and Don'ts</h3>
+        <div class="two-col">
+          <ul class="do">
+            <li>Use a long passphrase of 4 or more random words.</li>
+            <li>Use a different password for each important account.</li>
+            <li>Use a password manager to remember them.</li>
+            <li>Turn on 2FA, especially for email.</li>
+          </ul>
+          <ul class="dont">
+            <li>Do not use your name, birthday or "123456".</li>
+            <li>Do not reuse the same password everywhere.</li>
+            <li>Do not share passwords or OTP codes with anyone.</li>
+            <li>Do not write passwords on sticky notes near your desk.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE 3: COMMON CYBER THREATS ===== -->
+    <section id="threats" class="page">
+      <div class="card">
+        <h2>⚠️ Common Cyber Threats</h2>
+        <p>Click a threat to see what it is, how to spot it and how to stay safe.</p>
+
+        <div class="row">
+          <input type="text" id="threatSearch" placeholder="Search e.g. phishing, wifi, ransomware" autocomplete="off">
+          <button id="threatClear" class="btn ghost" type="button">Clear</button>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="scam">🎣 Scams</button>
+          <button class="filter" data-filter="malware">🦠 Malware</button>
+          <button class="filter" data-filter="account">🔓 Account and Network</button>
+        </div>
+        <p id="threatCount" class="muted"></p>
+        <div id="threatList" class="threat-list"></div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE 4: ONLINE PRIVACY TIPS ===== -->
+    <section id="privacy" class="page">
+      <div class="card">
+        <h2>🕶️ Online Privacy Tips</h2>
+        <p>Tick each tip after you do it. Your progress is saved in this browser.</p>
+
+        <div class="meter"><div id="privBar" class="meter-bar"></div></div>
+        <p class="meter-text"><b id="privText">0 of 0 done</b></p>
+
+        <div id="privList" class="priv-list"></div>
+        <button id="privReset" class="btn danger" type="button">Reset Checklist</button>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE 5: QUIZ GAME ===== -->
+    <section id="quiz" class="page">
+      <div class="card quiz-card">
+
+        <!-- Start screen -->
+        <div id="quizStart" class="quiz-panel">
+          <h2>🎮 Cybersecurity Quiz Game</h2>
+          <p>10 random questions. 15 seconds each. Faster answers give more points. Build a streak for bonus points. You have 3 lives and one 50/50 lifeline.</p>
+          <p class="muted">Playing as: <b id="quizPlayer">Guest</b></p>
+          <button id="quizStartBtn" class="btn primary big">▶ Start Quiz</button>
+        </div>
+
+        <!-- Question screen -->
+        <div id="quizPlay" class="quiz-panel hidden">
+          <div class="hud">
+            <div>Question <b id="qNum">1</b>/10</div>
+            <div>⭐ <b id="qScore">0</b></div>
+            <div>🔥 Streak <b id="qStreak">0</b></div>
+            <div id="qLives" class="hearts">❤️❤️❤️</div>
+            <button id="qLifeline" class="btn ghost small" type="button">✂️ 50/50</button>
+          </div>
+
+          <div class="timer"><div id="timerBar" class="timer-bar"></div></div>
+          <p class="timer-text"><span id="timerText">15</span>s</p>
+
+          <p id="qCat" class="qcat"></p>
+          <h3 id="qText" class="qtext"></h3>
+          <div id="qOptions" class="q-options"></div>
+
+          <div id="qFeedback" class="feedback hidden"></div>
+          <button id="qNext" class="btn primary hidden" type="button">Next ▶</button>
+        </div>
+
+        <!-- Result screen -->
+        <div id="quizEnd" class="quiz-panel hidden">
+          <h2 id="endTitle">Quiz Complete</h2>
+          <div class="final" id="endScore">0</div>
+          <p id="endDetail"></p>
+          <p id="endRank"></p>
+          <div class="row center">
+            <button id="quizAgain" class="btn primary" type="button">🔁 Play Again</button>
+            <button id="goBoard" class="btn ghost" type="button">🏆 View Ranks</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== LEADERBOARD ===== -->
+    <section id="leaderboard" class="page">
+      <div class="card">
+        <h2>🏆 Leaderboard</h2>
+        <p>Top 10 quiz scores saved in this browser (localStorage).</p>
+        <table class="board">
+          <thead><tr><th>Rank</th><th>Player</th><th>Score</th><th>Correct</th><th>Date</th></tr></thead>
+          <tbody id="boardBody"></tbody>
+        </table>
+        <button id="resetBoard" class="btn danger" type="button">Reset Leaderboard</button>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="page">
+      <div class="card">
+        <h2>ℹ️ About CYBERWISE</h2>
+        <p><b>Problem:</b> Many students use weak passwords, click suspicious links and share too much online, which puts their accounts and personal information at risk.</p>
+        <p><b>Solution:</b> A website that teaches cybersecurity in a simple, interactive way.</p>
+        <p><b>Target users:</b> High school and college students.</p>
+        <p><b>Technologies:</b> HTML (structure), CSS (design), JavaScript (features), browser localStorage (saved data).</p>
+        <h3>Team Members</h3>
+        <ul>
+          <li>Genevalyn Bulingkit - System Analyst and Pitch Presenter</li>
+          <li>Kelly Sumampong - Front-End Developer</li>
+          <li>Aluise Vincent Clenista - JavaScript Developer</li>
+          <li>All members - QA Tester and System Demonstrator</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    CYBERWISE &copy; 2026 | Cristal e-College - Computer Studies Department | ITEL 1 Final Exam
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
